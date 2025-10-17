@@ -16,10 +16,10 @@ I mean... It's pretty simple thing. You can figure some things out by yourself I
 - No worries! You can download it from here again so you can access your hidden folder.
 
 > "How can I change the password?"
-From here;
+- Find the line from down below in the batch file
 ```batch
 REM You can set your password from below this comment
 if NOT %pass%== ballsofsigma123 goto FAIL
 REM You can set your password from above this comment
 ```
-Just change "ballsofsigma123" to something else.
+Just change "ballsofsigma123" to anything you want.
