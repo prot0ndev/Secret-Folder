@@ -3,7 +3,7 @@ It creates a hidden, secret folder via a batch file.
 
 I mean... It's pretty simple thing. You can figure some things out by yourself I guess.
 
-**BUT** I'm still gonna tell you basically what you are gonna do with this
+**BUT** I'm still gonna tell you basically what you are gonna do with it
 
 1. Open it up
 2. It will create a folder called "Private"
