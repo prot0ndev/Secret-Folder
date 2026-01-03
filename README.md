@@ -23,3 +23,19 @@ if NOT %pass%== ballsofsigma123 goto FAIL
 REM You can set your password from above this comment
 ```
 Just change "ballsofsigma123" to anything you want.
+
+---
+
+## Building the Executable (C++)
+
+This repository now includes a C++ version of the original batch script. To compile it into an executable (`.exe`) on a Windows machine with a C++ compiler (like MinGW-w64), follow these steps:
+
+1.  **Install a C++ compiler:** If you don't have one, you can install MinGW-w64.
+2.  **Open a command prompt:** Navigate to the directory containing `main.cpp`.
+3.  **Compile the code:** Run the following command:
+
+    ```bash
+    g++ -o key.exe main.cpp
+    ```
+
+4.  **Run the executable:** Once compiled, you can run `key.exe` from the command prompt.
