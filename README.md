@@ -1,41 +1,42 @@
-# Secret-Folder
-It creates a hidden, secret folder via a batch file.
+# Secret Folder
 
-I mean... It's pretty simple thing. You can figure some things out by yourself I guess.
+This project provides a C++ program that creates a secure, password-protected folder. It improves upon the original batch script by using strong AES-256 encryption to create a truly secure "vault" for your files.
 
-**BUT** I'm still gonna tell you basically what you are gonna do with it
+## How It Works
 
-1. Open it up
-2. It will create a folder called "Private"
-3. Open the batch file again. By pressing "Y" and hitting enter button you can hide the folder
-4. To unlock your hidden folder back again you can use the batch file and use your password in order to access your hidden folder again.
+The program operates in three main modes:
 
----
+1.  **First Run (Creation):** If no secure folder or vault exists, the program will ask if you want to create one. If you agree, it will create a folder named `Private`. You can then place your sensitive files and folders inside this `Private` directory.
 
-> "What if I lose my batch file?"
-- No worries! You can download it from here again so you can access your hidden folder.
+2.  **Locking:** Once you have placed your files in the `Private` folder, run the program again. It will ask for a password, which it will use to encrypt the folder's contents. The program then:
+    *   Generates a random salt and derives a strong encryption key from your password using **PBKDF2**.
+    *   Generates a random **Initialization Vector (IV)**.
+    *   Serializes the entire `Private` folder into a single data buffer.
+    *   Encrypts this buffer using **AES-256-CBC**.
+    *   Saves the salt, IV, and encrypted data to a file named `Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}`.
+    *   Hides this "vault" file using system attributes.
+    *   Deletes the original `Private` folder.
 
-> "How can I change the password?"
-- Find the line from down below in the batch file
-```batch
-REM You can set your password from below this comment
-if NOT %pass%== ballsofsigma123 goto FAIL
-REM You can set your password from above this comment
-```
-Just change "ballsofsigma123" to anything you want.
+3.  **Unlocking:** When you run the program and the hidden vault file is present, it will ask for the password. If the password is correct, the program will:
+    *   Read the salt, IV, and encrypted data from the vault file.
+    *   Re-derive the encryption key using the password and salt.
+    *   Decrypt the data.
+    *   Reconstruct the original `Private` folder and all its contents.
+    *   Delete the vault file, leaving the folder unlocked.
 
----
+## Building the Executable
 
-## Building the Executable (C++)
+To compile this program, you will need a C++ compiler that supports C++17 (for the `<filesystem>` library). MinGW-w64 on Windows is a good choice.
 
-This repository now includes a C++ version of the original batch script. To compile it into an executable (`.exe`) on a Windows machine with a C++ compiler (like MinGW-w64), follow these steps:
-
-1.  **Install a C++ compiler:** If you don't have one, you can install MinGW-w64.
-2.  **Open a command prompt:** Navigate to the directory containing `main.cpp`.
+1.  **Install a C++ compiler:** If you don't have one, install MinGW-w64 and make sure it's added to your system's PATH.
+2.  **Open a command prompt:** Navigate to the root directory of the project.
 3.  **Compile the code:** Run the following command:
 
     ```bash
-    g++ -o key.exe main.cpp
+    g++ -std=c++17 -o key.exe main.cpp crypto/sha256.cpp
     ```
 
 4.  **Run the executable:** Once compiled, you can run `key.exe` from the command prompt.
+
+---
+*Note: The original `key.bat` script is still included for historical reference but is not recommended for use due to its lack of real security.*
