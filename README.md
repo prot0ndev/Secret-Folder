@@ -7,19 +7,19 @@ I mean... It's pretty simple. You can figure it out by yourself I guess.
 
 1. Open it up
 2. It will create a folder called "Private"
-3. Open the batch file again. By pressing "Y" and hitting enter button you can hide the folder
-4. To unlock your hidden folder back again you can use the batch file and use your password in order to access your hidden folder again.
+3. Open the batch file again. By pressing "Y" and pressing the `Enter` button, you can hide the folder.
+4. To unlock your hidden folder, you **have to** use the batch file and the set password in order to access your hidden folder once again.
 
 ---
 
 > "What if I lose my batch file?"
-- No worries! You can download it from here again so you can access your hidden folder.
+- No worries! You can download it from here back again in order to access your folder.
 
 > "How can I change the password?"
-- Find the line from down below in the batch file
+- Find the exact piece of line in the batch file (the example have provided down below)
 ```batch
 REM You can set your password from below this comment
 if NOT %pass%== ballsofsigma123 goto FAIL
 REM You can set your password from above this comment
 ```
-Just change "ballsofsigma123" to anything you want.
+Just change "ballsofsigma123" to any password you want.
