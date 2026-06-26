@@ -23,5 +23,3 @@ if NOT %pass%== ballsofsigma123 goto FAIL
 REM You can set your password from above this comment
 ```
 Just change "ballsofsigma123" to any password you want.
-
-Made with ♥️ by Botiwa.
