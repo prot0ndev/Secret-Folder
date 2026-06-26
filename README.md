@@ -1,9 +1,9 @@
 # Secret-Folder
-It creates a hidden, secret folder via a batch file.
+It creates a hidden, secret folder via the batch file.
 
-I mean... It's pretty simple thing. You can figure some things out by yourself I guess.
+I mean... It's pretty simple. You can figure it out by yourself I guess.
 
-**BUT** I'm still gonna tell you basically what you are gonna do with it
+**BUT**, in case if you still need to read some instructions to understand what this file does, here it is;
 
 1. Open it up
 2. It will create a folder called "Private"
